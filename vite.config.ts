@@ -7,5 +7,13 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   server: {
     open: true,
+    proxy: {
+      // Proxy API calls để test với mock server
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   },
-});
+}); 

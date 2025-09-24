@@ -1,4 +1,3 @@
-// src/components/UploadFile.tsx
 import React, { useState } from 'react';
 
 interface FileInfo {
