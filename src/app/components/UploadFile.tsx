@@ -90,8 +90,11 @@ const UploadFile: React.FC = () => {
       // Tạo mock URL cho file (trong thực tế sẽ upload file lên storage trước)
       const mockFileUrl = `https://mock-storage.example.com/files/${selectedFile.name}`;
 
+      // Cấu hình API URL cho production
+      const apiUrl = import.meta.env.VITE_SERVER_URL || '/api';
+      
       // Gọi API POST tới /api/intake
-      const response = await fetch('/api/intake', {
+      const response = await fetch(`${apiUrl}/intake`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
